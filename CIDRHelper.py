@@ -101,6 +101,8 @@ class lzscanner(object):
         preList = self.readfile(filename)
         for line in preList:
             line = line.strip()
+            if line.endswith("/32"):
+                line = line.replace("/32","")
             times = len(re.findall(r"\.",line))
             if "-" in line:
                 start = re.split("-", line)[0]
